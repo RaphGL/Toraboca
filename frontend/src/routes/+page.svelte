@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ChatCard from '$lib/components/ChatCard.svelte';
 	import ChatBubble from '$lib/components/ChatBubble.svelte';
+	import MessageArea from '$lib/components/MessageArea.svelte';
 
 	type ChatInfo = {
 		name: string;
@@ -46,10 +47,14 @@
 	</aside>
 
 	<main>
-		{#each messages as message} 
-		<ChatBubble userId={message.userId}>{message.content}</ChatBubble>
-		{/each}
-		<ChatBubble profilePic="#">nada dimas pm?</ChatBubble>
+		<div class="message-view">
+			{#each messages as message}
+				<ChatBubble userId={message.userId}>{message.content}</ChatBubble>
+			{/each}
+			<ChatBubble profilePic="#">hey, what's up</ChatBubble>
+		</div>
+
+		<MessageArea />
 	</main>
 </div>
 
@@ -59,6 +64,10 @@
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 2fr;
 		gap: 0.5em;
+	}
+
+	.message-view {
+		overflow-y: auto;
 	}
 
 	aside {
@@ -76,7 +85,10 @@
 	}
 
 	main {
+		display: flex;
+		flex-direction: column;
 		background-color: var(--bg-color2);
 		border-radius: var(--rounded-border);
+		max-height: 100vh;
 	}
 </style>
