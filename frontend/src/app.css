@@ -1,0 +1,16 @@
+:root {
+  --bg-color1: #44475A;
+  --bg-color2: #282A36;
+
+  --fg-color1: #F8F8F2;
+  --fg-color2: #6272A4;
+
+  --rounded-border: 0.5em;
+}
+
+body {
+  background-color: var(--bg-color1);
+  color: var(--fg-color1);
+  font-family: Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, sans-serif;
+  font-size: 12pt;
+}
