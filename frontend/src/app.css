@@ -13,4 +13,5 @@ body {
   color: var(--fg-color1);
   font-family: Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, sans-serif;
   font-size: 12pt;
+  margin: 0;
 }

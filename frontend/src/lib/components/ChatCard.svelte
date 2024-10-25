@@ -11,15 +11,14 @@
 </script>
 
 <div class="card">
-	<div class="card-image">
-		<img src={profilePic} alt={profilePicAlt} />
-	</div>
+	<img src={profilePic} alt={profilePicAlt} />
 
 	<div class="card-text">
 		<div class="label">
-			{label}
+			<div>{label}</div>
+			<div class="label-timestamp">{timePassed}</div>
 		</div>
-		<div class="preview-msg">{previewMsg} - {timePassed}</div>
+		<div class="preview-msg">{previewMsg} -</div>
 	</div>
 </div>
 
@@ -31,18 +30,33 @@
 		padding: 1em;
 		border-radius: var(--rounded-border);
 
+		img {
+			height: 4em;
+			width: 4em;
+			border-radius: 50%;
+			background-color: var(--bg-color1);
+			text-align: center;
+		}
+
 		&:hover {
 			background-color: var(--bg-color1);
-			.card-image {
+
+			img {
 				background-color: var(--bg-color2);
 			}
 		}
-
 	}
 
 	.card-text {
+		width: 100%;
 		.label {
 			color: var(--fg-color1);
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.label-timestamp {
+			color: var(--fg-color2);
 		}
 
 		.preview-msg {
@@ -57,5 +71,4 @@
 		text-align: center;
 		border-radius: 50%;
 	}
-
 </style>

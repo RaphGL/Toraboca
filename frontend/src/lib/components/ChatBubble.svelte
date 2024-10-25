@@ -6,7 +6,7 @@
 		userId: number;
 		children: Snippet;
 	};
-	let { profilePic = null, userId, children }: Props = $props();
+	let { profilePic = '#', userId, children }: Props = $props();
 
 	// message sent by the user of the account
 	// todo: change to compare to actual userid gotten from the backend
@@ -15,7 +15,7 @@
 
 <div class="bubble-container">
 	{#if !myMsg}
-		<img src={profilePic} />
+		<img src={profilePic} alt="user's avatar"/>
 	{/if}
 	<div class="chat-bubble" class:my-msg={myMsg}>
 		{@render children()}

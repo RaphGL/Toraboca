@@ -1,5 +1,16 @@
+<script lang="ts">
+	let sendButton = $state("record");
+	let message: HTMLDivElement;
+
+	function changeSendButtonIfMessageNotEmpty() {		
+		sendButton = message.innerText.trim().length > 0 ? "send" : "record";
+	}
+
+</script>
+
 <div class="message-area">
-	<div class="input" role="textbox" contenteditable> </div>
+	<div bind:this={message} oninput={changeSendButtonIfMessageNotEmpty} class="input" role="textbox" contenteditable> </div>
+	<button>{sendButton}</button>
 </div>
 
 <style>
