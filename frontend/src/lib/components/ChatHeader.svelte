@@ -1,4 +1,7 @@
 <script lang="ts">
+	import CallIcon from '$lib/icons/CallIcon.svelte';
+	import DotsIcon from '$lib/icons/DotsIcon.svelte';
+
 	type Props = {
 		chatName: string;
 		chatInfo: string;
@@ -17,8 +20,8 @@
 		</div>
 	</div>
 	<div class="chat-wrapper">
-		<div>Call</div>
-		<div>More</div>
+		<div><CallIcon /></div>
+		<div><DotsIcon /></div>
 	</div>
 </header>
 

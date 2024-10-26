@@ -38,8 +38,6 @@
 
 <div class="split-view">
 	<aside>
-		<header>Chats</header>
-
 		<section>
 			{#each chats as chat}
 				<ChatCard label={chat.name} previewMsg={chat.message} timePassed="1m" />

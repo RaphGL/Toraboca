@@ -1,24 +1,47 @@
 <script lang="ts">
-	let sendButton = $state("record");
-	let message: HTMLDivElement;
+	import SendIcon from '$lib/icons/SendIcon.svelte';
 
-	function changeSendButtonIfMessageNotEmpty() {		
-		sendButton = message.innerText.trim().length > 0 ? "send" : "record";
+	// this is necessary for the :empty css pseudoclass to work in some browsers,
+	// which insert a \n when the contenteditable is empty
+	let messageBox: HTMLDivElement;
+	function ensureEmptyContent() {
+		if (messageBox.innerText.trim().length === 0) {
+			messageBox.innerText = '';
+		}
 	}
-
 </script>
 
 <div class="message-area">
-	<div bind:this={message} oninput={changeSendButtonIfMessageNotEmpty} class="input" role="textbox" contenteditable> </div>
-	<button>{sendButton}</button>
+	<div
+		bind:this={messageBox}
+		oninput={ensureEmptyContent}
+		class="input"
+		role="textbox"
+		contenteditable
+		data-placeholder="Message"
+	></div>
+	<button><SendIcon /></button>
 </div>
 
 <style>
+	[contenteditable]:empty:before {
+		color: var(--fg-color2);
+		content: attr(data-placeholder);
+		display: block;
+		pointer-events: none;
+	}
+
 	.message-area {
 		display: flex;
 		width: 100%;
 		justify-content: center;
 		gap: 1em;
+
+		button {
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
 	}
 
 	.input {
