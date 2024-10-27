@@ -3,26 +3,41 @@
 	import ChatIcon from '$lib/icons/ChatIcon.svelte';
 	import SettingsIcon from '$lib/icons/SettingsIcon.svelte';
 	import LogoutIcon from '$lib/icons/LogoutIcon.svelte';
+	import Dropdown from '$lib/components/Dropdown.svelte';
+	import DropdownItem from '$lib/components/DropdownItem.svelte';
 </script>
 
 <nav>
 	<h1>Toraboca</h1>
 	<ul>
-		<li><a href="/chat"><ChatIcon active={true} /></a></li>
+		<li><a href="/"><ChatIcon active={true} /></a></li>
 		<li><a href="/requests"><RequestIcon active={false} /></a></li>
 		<li><a href="/settings"><SettingsIcon active={false} /></a></li>
-		<li><a href="/logout"><LogoutIcon /></a></li>
+		<li>
+			<Dropdown align="left">
+				{#snippet label()}
+					<img src="https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg" />
+				{/snippet}
+
+				<DropdownItem>Active status</DropdownItem>
+				<DropdownItem>Change avatar</DropdownItem>
+				<DropdownItem>Change username</DropdownItem>
+				<DropdownItem>Theme: Dark</DropdownItem>
+				<DropdownItem icon={LogoutIcon}>Logout</DropdownItem>
+
+			</Dropdown>
+		</li>
 	</ul>
 </nav>
 
 <style>
 	h1 {
-	font-size: 1.3em;		
+		font-size: 1.3em;
 	}
 
 	nav {
 		background-color: var(--bg-color2);
-		padding: 0 1em;
+		padding: 0.2em 1em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -32,19 +47,19 @@
 		display: flex;
 		gap: 2em;
 		justify-content: center;
+		align-items: center;
 		list-style: none;
 
-		li {
-			padding: 0.5em;
-
-			&:hover {
-				background-color: var(--fg-color2);
-				border-radius: var(--rounded-border);
-			}
-
-			a {
-				color: inherit;
-			}
+		li a {
+			color: inherit;
 		}
+	}
+
+	nav li img {
+		background-color: var(--fg-color2);
+		border-radius: 50%;
+		height: calc(2em - 2px);
+		width: calc(2em - 2px);
+		padding: 2px;
 	}
 </style>
