@@ -1,12 +1,17 @@
 <script lang="ts">
+	import MicIcon from '$lib/icons/MicIcon.svelte';
 	import SendIcon from '$lib/icons/SendIcon.svelte';
 
 	// this is necessary for the :empty css pseudoclass to work in some browsers,
 	// which insert a \n when the contenteditable is empty
 	let messageBox: HTMLDivElement;
+	let showVoiceRecorder = $state(true);
 	function ensureEmptyContent() {
 		if (messageBox.innerText.trim().length === 0) {
 			messageBox.innerText = '';
+			showVoiceRecorder = true;
+		} else {
+			showVoiceRecorder = false;
 		}
 	}
 </script>
@@ -20,7 +25,13 @@
 		contenteditable
 		data-placeholder="Message"
 	></div>
-	<button><SendIcon /></button>
+	<button>
+		{#if showVoiceRecorder}
+			<MicIcon />
+		{:else}
+			<SendIcon />
+		{/if}
+	</button>
 </div>
 
 <style>
@@ -41,6 +52,7 @@
 			background: none;
 			border: none;
 			cursor: pointer;
+			color: var(--fg-color2);
 		}
 	}
 

@@ -3,8 +3,17 @@
 	import ChatIcon from '$lib/icons/ChatIcon.svelte';
 	import SettingsIcon from '$lib/icons/SettingsIcon.svelte';
 	import LogoutIcon from '$lib/icons/LogoutIcon.svelte';
+	import UserEditIcon from '$lib/icons/UserEditIcon.svelte';
+	import SunIcon from '$lib/icons/SunIcon.svelte';
+	import MoonIcon from '$lib/icons/MoonIcon.svelte';
+	import BellActiveIcon from '$lib/icons/BellActiveIcon.svelte';
+	import BellInactiveIcon from '$lib/icons/BellInactiveIcon.svelte';
+
 	import Dropdown from '$lib/components/Dropdown.svelte';
 	import DropdownItem from '$lib/components/DropdownItem.svelte';
+
+	let darkMode = $state(true);
+	let isOnline = $state(true);
 </script>
 
 <nav>
@@ -19,12 +28,17 @@
 					<img src="https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg" />
 				{/snippet}
 
-				<DropdownItem>Active status</DropdownItem>
-				<DropdownItem>Change avatar</DropdownItem>
-				<DropdownItem>Change username</DropdownItem>
-				<DropdownItem>Theme: Dark</DropdownItem>
+				<DropdownItem icon={UserEditIcon}>Edit Profile</DropdownItem>
+				<DropdownItem icon={isOnline ? BellActiveIcon : BellInactiveIcon}
+					onclick={() => isOnline = !isOnline}
+					>
+						Status: {isOnline ? "Online" : "Offline"}
+					</DropdownItem
+				>
+				<DropdownItem icon={darkMode ? SunIcon : MoonIcon} onclick={() => (darkMode = !darkMode)}>
+					Theme: {darkMode ? 'Dark' : 'Light'}
+				</DropdownItem>
 				<DropdownItem icon={LogoutIcon}>Logout</DropdownItem>
-
 			</Dropdown>
 		</li>
 	</ul>

@@ -7,10 +7,10 @@
 		children: Snippet;
 	};
 
-	let { href = '#', icon = null, children }: Props = $props();
+	let { href = '#', icon = null, children, ...rest }: Props = $props();
 </script>
 
-<div class="dropdown-item">
+<div class="dropdown-item" {...rest}>
 	{#if icon}
 		<div class="icon">
 			{@render icon()}
@@ -24,6 +24,7 @@
 
 <style>
 	.dropdown-item {
+		cursor: pointer;
 		display: flex;
 		align-items: center;
 		gap: 1em;
@@ -34,11 +35,5 @@
 
 	.dropdown-item:hover {
 		background-color: var(--bg-color1);
-	}
-
-	.icon {
-		display: flex;
-		align-items: center;
-		height: 1em;
 	}
 </style>
