@@ -1,0 +1,33 @@
+diff --git a/frontend/src/routes/+page.svelte b/frontend/src/routes/+page.svelte
+index 6a70659..6cdfacc 100644
+--- a/frontend/src/routes/+page.svelte
++++ b/frontend/src/routes/+page.svelte
+@@ -64,8 +64,13 @@
+ 		display: grid;
+ 		margin: 0.5em;
+ 		grid-template-rows: 1fr;
+-		grid-template-columns: 1fr 2fr;
++		grid-template-columns: 1fr 3fr;
+ 		gap: 0.5em;
++		align-items: center;
++	}
++
++	.split-view > * {
++		box-shadow: 0 0 4px var(--bg-color2);
+ 	}
+ 
+ 	.message-view {
+@@ -81,12 +86,8 @@
+ 		flex-direction: column;
+ 		gap: 1em;
+ 		padding: 1em;
++		height: 94%;
+ 		border-radius: var(--rounded-border);
+-
+-		header {
+-			font-size: 1.5em;
+-			font-weight: bold;
+-		}
+ 	}
+ 
+ 	main {

@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: var(--bg-color1);
+  background-image: radial-gradient(var(--bg-color2), var(--bg-color1));
   color: var(--fg-color1);
   font-family: Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, sans-serif;
   font-size: 12pt;

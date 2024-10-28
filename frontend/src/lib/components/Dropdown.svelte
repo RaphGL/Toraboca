@@ -14,12 +14,12 @@
 	let dropdownElement: HTMLDivElement;
 	function closeOnClickOutside(e: MouseEvent) {
 		e.preventDefault();
-		e.stopPropagation();
 
 		if (!dropdownElement.contains(e.target)) {
 			showDropdown = false;
 		}
 	}
+
 </script>
 
 <svelte:window onclick={closeOnClickOutside} />
@@ -55,7 +55,7 @@
 		color: var(--fg-color1);
 		background-color: var(--bg-color2);
 		min-height: 3em;
-		min-width: 5em;
+		min-width: fit-content;
 		box-shadow: 0 0 10px black;
 		border-radius: var(--rounded-border);
 		padding: 1em;

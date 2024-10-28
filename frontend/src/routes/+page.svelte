@@ -64,8 +64,13 @@
 		display: grid;
 		margin: 0.5em;
 		grid-template-rows: 1fr;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 3fr;
+		align-items: center;
 		gap: 0.5em;
+	}
+
+	.split-view > * {
+		box-shadow: 0 0 4px var(--bg-color2);
 	}
 
 	.message-view {
@@ -81,12 +86,8 @@
 		flex-direction: column;
 		gap: 1em;
 		padding: 1em;
+		height: 94%;
 		border-radius: var(--rounded-border);
-
-		header {
-			font-size: 1.5em;
-			font-weight: bold;
-		}
 	}
 
 	main {
