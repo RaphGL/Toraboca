@@ -50,8 +50,7 @@
 	}
 
 	nav {
-		background-color: var(--bg-color2);
-		padding: 0.2em 1em;
+		padding: 0 2em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -59,7 +58,7 @@
 
 	nav ul {
 		display: flex;
-		gap: 2em;
+		gap: 3em;
 		justify-content: center;
 		align-items: center;
 		list-style: none;

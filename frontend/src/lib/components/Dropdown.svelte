@@ -58,7 +58,7 @@
 		min-width: fit-content;
 		box-shadow: 0 0 10px black;
 		border-radius: var(--rounded-border);
-		padding: 1em;
+		padding: 0.4em;
 		z-index: 1;
 	}
 

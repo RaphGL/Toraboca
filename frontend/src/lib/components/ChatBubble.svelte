@@ -36,7 +36,7 @@
 	}
 
 	.chat-bubble {
-		background-color: var(--bg-color1);
+		background-color: var(--bg-color3);
 		width: fit-content;
 		padding: 0.7em;
 		margin: 1em;
@@ -44,7 +44,7 @@
 	}
 
 	.my-msg {
-		background-color: var(--fg-color2);
+		background-color: var(--bg-color1);
 		margin-left: auto;
 		margin-right: 1em;
 	}

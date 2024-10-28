@@ -18,10 +18,48 @@
 	const chats: ChatInfo[] = [
 		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
 		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
+		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
+		{ name: 'Mom', message: 'come have lunch' },
 		{ name: 'friend', message: 'u coming tonight?' }
 	];
 
 	const messages: MessageInfo[] = [
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 2, userName: 'Raph' },
+		{ content: 'hello there', userId: 1, userName: 'Raph' },
 		{ content: 'hello there', userId: 2, userName: 'Raph' },
 		{ content: 'hello there', userId: 2, userName: 'Raph' },
 		{ content: 'hello there', userId: 1, userName: 'Raph' },
@@ -48,11 +86,13 @@
 	<main>
 		<ChatHeader chatName="Friend" chatInfo="last active 10 minutes ago" />
 
-		<div class="message-view">
-			{#each messages as message}
-				<ChatBubble userId={message.userId}>{message.content}</ChatBubble>
-			{/each}
-			<ChatBubble userId={1}>hey, what's up</ChatBubble>
+		<div class="message-wrapper">
+			<div class="message-view">
+				{#each messages as message}
+					<ChatBubble userId={message.userId}>{message.content}</ChatBubble>
+				{/each}
+				<ChatBubble userId={1}>hey, what's up</ChatBubble>
+			</div>
 		</div>
 
 		<MessageArea />
@@ -62,22 +102,29 @@
 <style>
 	.split-view {
 		display: grid;
-		margin: 0.5em;
-		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 3fr;
 		align-items: center;
+		height: 100%;
+		margin: 2em 0.5em;
 		gap: 0.5em;
 	}
 
 	.split-view > * {
 		box-shadow: 0 0 4px var(--bg-color2);
+		padding: 1em;
+		height: 0;
+		min-height: 100%;
 	}
 
-	.message-view {
-		display: flex;
-		flex-direction: column;
+	.message-wrapper {
 		overflow-y: auto;
-		justify-content: end;
+		height: 100%;
+
+		.message-view {
+			display: flex;
+			flex-direction: column;
+			justify-content:end;
+		}
 	}
 
 	aside {
@@ -85,14 +132,18 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
-		padding: 1em;
-		height: 94%;
 		border-radius: var(--rounded-border);
+		overflow: hidden;
+
+		section {
+			overflow-y: auto;
+		}
 	}
 
 	main {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		background-color: var(--bg-color2);
 		border-radius: var(--rounded-border);
 	}

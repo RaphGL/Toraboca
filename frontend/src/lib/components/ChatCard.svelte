@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="chat-settings">
-		<Dropdown>
+		<Dropdown align="left">
 			{#snippet label()}
 				<div class="icon">
 					<DotsIcon />
@@ -75,6 +75,7 @@
 
 	.card-text {
 		width: 100%;
+
 		.label {
 			color: var(--fg-color1);
 			display: flex;

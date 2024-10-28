@@ -51,7 +51,7 @@
 	}
 
 	.chat-info {
-		font-size: 0.8em;
+		font-size: 0.9em;
 		color: var(--fg-color2);
 	}
 </style>

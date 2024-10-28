@@ -28,7 +28,7 @@
 		display: flex;
 		align-items: center;
 		gap: 1em;
-		padding: 1em;
+		padding: 0.8em 1em;
 		border-radius: var(--rounded-border);
 		height: 1em;
 		min-width: max-content;
