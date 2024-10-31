@@ -93,10 +93,7 @@
 	.icon {
 		color: var(--fg-color1);
 		visibility: hidden;
-		background-color: var(--bg-color2);
 		border-radius: 50%;
-		padding: 0.5em;
-		box-shadow: 0 0 2px var(--fg-color2);
 	}
 
 	.card:hover .icon {

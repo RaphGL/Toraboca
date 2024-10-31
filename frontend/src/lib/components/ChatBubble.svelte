@@ -1,4 +1,6 @@
 <script lang="ts">
+	import EmojiIcon from '$lib/icons/EmojiIcon.svelte';
+	import ReplyIcon from '$lib/icons/ReplyIcon.svelte';
 	import type { Snippet } from 'svelte';
 
 	type Props = {
@@ -11,20 +13,42 @@
 	// message sent by the user of the account
 	// todo: change to compare to actual userid gotten from the backend
 	let myMsg = userId == 1;
+	let messageHovered = $state(false);
 </script>
 
-<div class="bubble-container">
-	{#if !myMsg}
-		<img src={profilePic} alt="user's avatar"/>
+{#snippet messageControls()}
+	<ReplyIcon />
+	<EmojiIcon />
+{/snippet}
+
+<div
+	class="bubble-container"
+	class:justify-right={myMsg}
+	onmouseenter={() => (messageHovered = true)}
+	onmouseleave={() => (messageHovered = false)}
+>
+	{#if myMsg && messageHovered}
+		{@render messageControls()}
 	{/if}
+
+	{#if !myMsg}
+		<img src={profilePic} alt="user's avatar" />
+	{/if}
+
 	<div class="chat-bubble" class:my-msg={myMsg}>
 		{@render children()}
 	</div>
+
+	{#if !myMsg && messageHovered}
+		{@render messageControls()}
+	{/if}
 </div>
 
 <style>
 	.bubble-container {
 		display: flex;
+		gap: 0.5em;
+		align-items: center;
 
 		img {
 			width: 2.5em;
@@ -33,6 +57,10 @@
 			margin: auto 0;
 			margin-left: 1em;
 		}
+	}
+
+	.justify-right {
+		justify-content: right;
 	}
 
 	.chat-bubble {
@@ -45,7 +73,5 @@
 
 	.my-msg {
 		background-color: var(--bg-color1);
-		margin-left: auto;
-		margin-right: 1em;
 	}
 </style>

@@ -13,6 +13,8 @@
 	import DropdownItem from '$lib/components/DropdownItem.svelte';
 	import SearchBar from './SearchBar.svelte';
 
+	import { page } from '$app/stores';
+
 	let darkMode = $state(true);
 	let isOnline = $state(true);
 </script>
@@ -20,12 +22,12 @@
 <nav>
 	<h1>Toraboca</h1>
 	<div class="search-bar">
-	<SearchBar/>
+		<SearchBar />
 	</div>
 	<ul>
-		<li><a href="/"><ChatIcon active={true} /></a></li>
-		<li><a href="/requests"><RequestIcon active={false} /></a></li>
-		<li><a href="/settings"><SettingsIcon active={false} /></a></li>
+		<li><a href="/"><ChatIcon active={$page.url.pathname === '/'} /></a></li>
+		<li><a href="/requests"><RequestIcon active={$page.url.pathname === '/requests'} /></a></li>
+		<li><a href="/settings"><SettingsIcon active={$page.url.pathname === '/settings'} /></a></li>
 		<li>
 			<Dropdown align="left">
 				{#snippet label()}
@@ -33,12 +35,12 @@
 				{/snippet}
 
 				<DropdownItem icon={UserEditIcon}>Edit Profile</DropdownItem>
-				<DropdownItem icon={isOnline ? BellActiveIcon : BellInactiveIcon}
-					onclick={() => isOnline = !isOnline}
-					>
-						Status: {isOnline ? "Online" : "Offline"}
-					</DropdownItem
+				<DropdownItem
+					icon={isOnline ? BellActiveIcon : BellInactiveIcon}
+					onclick={() => (isOnline = !isOnline)}
 				>
+					Status: {isOnline ? 'Online' : 'Offline'}
+				</DropdownItem>
 				<DropdownItem icon={darkMode ? SunIcon : MoonIcon} onclick={() => (darkMode = !darkMode)}>
 					Theme: {darkMode ? 'Dark' : 'Light'}
 				</DropdownItem>

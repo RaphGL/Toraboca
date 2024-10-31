@@ -1,10 +1,10 @@
 <script>
 	import '../app.css';
-	import MenuBar from '$lib/components/MenuBar.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 </script>
 
 <div class="fill-screen">
-	<MenuBar />
+	<NavBar />
 	<slot />
 </div>
 
