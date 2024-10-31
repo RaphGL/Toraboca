@@ -1,150 +1,76 @@
-<script lang="ts">
-	import ChatCard from '$lib/components/ChatCard.svelte';
-	import ChatBubble from '$lib/components/ChatBubble.svelte';
-	import MessageArea from '$lib/components/MessageArea.svelte';
-	import ChatHeader from '$lib/components/ChatHeader.svelte';
+<div class="fullscreen">
+	<h1>Toraboca</h1>
+	<div class="login-box">
+		<form>
+			<label for="username">Username</label>
+			<input type="text" placeholder="username" />
 
-	type ChatInfo = {
-		name: string;
-		message: string;
-	};
-
-	type MessageInfo = {
-		content: string;
-		userId: number;
-		userName: string;
-	};
-
-	const chats: ChatInfo[] = [
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'Geeks 2.0', message: '😂😂😂🔥' },
-		{ name: 'Mom', message: 'come have lunch' },
-		{ name: 'friend', message: 'u coming tonight?' }
-	];
-
-	const messages: MessageInfo[] = [
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 2, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' },
-		{ content: 'hello there', userId: 1, userName: 'Raph' }
-	];
-</script>
-
-<svelte:head>
-	<title>Toraboca Messenger</title>
-</svelte:head>
-
-<div class="split-view">
-	<aside>
-		<section>
-			{#each chats as chat}
-				<ChatCard label={chat.name} previewMsg={chat.message} timePassed="1m" />
-			{/each}
-		</section>
-	</aside>
-
-	<main>
-		<ChatHeader chatName="Friend" chatInfo="last active 10 minutes ago" />
-
-		<div class="message-wrapper">
-			<div class="message-view">
-				{#each messages as message}
-					<ChatBubble userId={message.userId}>{message.content}</ChatBubble>
-				{/each}
-				<ChatBubble userId={1}>hey, what's up</ChatBubble>
-			</div>
-		</div>
-
-		<MessageArea />
-	</main>
+			<label for="password">Password</label>
+			<input type="password" placeholder="password" />
+			<input type="submit" value="Login" />
+		</form>
+		<a href="#">Forgot your password?</a>
+	</div>
 </div>
 
 <style>
-	.split-view {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		align-items: center;
-		height: 100%;
-		margin: 2em 0.5em;
-		margin-top: 1em;
-		gap: 0.5em;
+	.fullscreen {
+		display: flex;
+		height: 100vh;
+		width: 100vw;
+	}
+	h1 {
+	font-size: 4em;
+		margin: auto;
 	}
 
-	.split-view > * {
-		box-shadow: 0 0 2px var(--bg-color2);
-		padding: 1em;
-		height: 0;
-		min-height: 100%;
-	}
 
-	.message-wrapper {
-		overflow-y: auto;
-
-		.message-view {
-			display: flex;
-			flex-direction: column;
-			justify-content:end;
-		}
-	}
-
-	aside {
-		background-color: var(--bg-color2);
+	.login-box {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
+		background-color: var(--bg-color2);
 		border-radius: var(--rounded-border);
-		overflow: hidden;
+		width: 30%;
+		height: fit-content;
+		margin: auto;
+		padding: 3em;
+	}
 
-		section {
-			overflow-y: auto;
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		label {
+			font-weight: bold;
+		}
+
+		input {
+			font-size: 1em;
+			background-color: var(--bg-color1);
+			border: none;
+			border-radius: var(--rounded-border);
+			color: inherit;
+			padding: 1em;
+			outline: none;
 		}
 	}
 
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		background-color: var(--bg-color2);
-		border-radius: var(--rounded-border);
+	input[type='submit'] {
+		background-color: var(--bg-color3);
+		font-weight: bold;
+		padding: 0.8em;
+		font-size: 1em;
+	}
+
+	a {
+		color: var(--fg-color2);
+		text-decoration: none;
+		text-align: center;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 </style>
