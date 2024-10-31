@@ -11,6 +11,7 @@
 
 	import Dropdown from '$lib/components/Dropdown.svelte';
 	import DropdownItem from '$lib/components/DropdownItem.svelte';
+	import SearchBar from './SearchBar.svelte';
 
 	let darkMode = $state(true);
 	let isOnline = $state(true);
@@ -18,6 +19,9 @@
 
 <nav>
 	<h1>Toraboca</h1>
+	<div class="search-bar">
+	<SearchBar/>
+	</div>
 	<ul>
 		<li><a href="/"><ChatIcon active={true} /></a></li>
 		<li><a href="/requests"><RequestIcon active={false} /></a></li>
@@ -74,5 +78,9 @@
 		height: calc(2em - 2px);
 		width: calc(2em - 2px);
 		padding: 2px;
+	}
+
+	.search-bar {
+		width: 40%;
 	}
 </style>

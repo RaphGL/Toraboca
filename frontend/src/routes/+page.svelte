@@ -106,11 +106,12 @@
 		align-items: center;
 		height: 100%;
 		margin: 2em 0.5em;
+		margin-top: 1em;
 		gap: 0.5em;
 	}
 
 	.split-view > * {
-		box-shadow: 0 0 4px var(--bg-color2);
+		box-shadow: 0 0 2px var(--bg-color2);
 		padding: 1em;
 		height: 0;
 		min-height: 100%;
@@ -118,7 +119,6 @@
 
 	.message-wrapper {
 		overflow-y: auto;
-		height: 100%;
 
 		.message-view {
 			display: flex;

@@ -56,7 +56,7 @@
 		background-color: var(--bg-color2);
 		min-height: 3em;
 		min-width: fit-content;
-		box-shadow: 0 0 10px black;
+		box-shadow: 0 0 10px var(--bg-color3);
 		border-radius: var(--rounded-border);
 		padding: 0.4em;
 		z-index: 1;
