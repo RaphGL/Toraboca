@@ -25,9 +25,11 @@
 		<SearchBar />
 	</div>
 	<ul>
-		<li><a href="/"><ChatIcon active={$page.url.pathname === '/'} /></a></li>
-		<li><a href="/requests"><RequestIcon active={$page.url.pathname === '/requests'} /></a></li>
-		<li><a href="/settings"><SettingsIcon active={$page.url.pathname === '/settings'} /></a></li>
+		<li><a href="/c"><ChatIcon active={$page.url.pathname === '/c'} /></a></li>
+		<li><a href="/c/requests"><RequestIcon active={$page.url.pathname === '/c/requests'} /></a></li>
+		<li>
+			<a href="/c/settings"><SettingsIcon active={$page.url.pathname === '/c/settings'} /></a>
+		</li>
 		<li>
 			<Dropdown align="left">
 				{#snippet label()}

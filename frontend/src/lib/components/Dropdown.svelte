@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { scale } from 'svelte/transition';
 
 	type Props = {
 		label: Snippet;
@@ -19,7 +20,6 @@
 			showDropdown = false;
 		}
 	}
-
 </script>
 
 <svelte:window onclick={closeOnClickOutside} />
@@ -28,7 +28,7 @@
 	<button onclick={() => (showDropdown = !showDropdown)}>{@render label()}</button>
 
 	{#if showDropdown}
-		<div class="dropdown-content {align}">
+		<div class="dropdown-content {align}" in:scale={{ duration: 50 }}>
 			{@render children()}
 		</div>
 	{/if}

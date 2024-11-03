@@ -20,10 +20,9 @@
 		width: 100vw;
 	}
 	h1 {
-	font-size: 4em;
+		font-size: 4em;
 		margin: auto;
 	}
-
 
 	.login-box {
 		display: flex;

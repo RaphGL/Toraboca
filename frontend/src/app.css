@@ -1,18 +1,19 @@
 :root {
-  --bg-color1: #395B64;
-  --bg-color2: #1B2430;
-  --bg-color3: #10151c;
+	--bg-color1: #395b64;
+	--bg-color2: #1b2430;
+	--bg-color3: #10151c;
 
-  --fg-color1: #E7F6F2;
-  --fg-color2: #A5C9CA;
+	--fg-color1: #e7f6f2;
+	--fg-color2: #a5c9ca;
 
-  --rounded-border: 0.5em;
+	--rounded-border: 0.5em;
 }
 
 body {
-  background-image: radial-gradient(var(--bg-color2), var(--bg-color1));
-  color: var(--fg-color1);
-  font-family: Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, sans-serif;
-  font-size: 12pt;
-  margin: 0;
+	background-image: radial-gradient(var(--bg-color2), var(--bg-color1));
+	color: var(--fg-color1);
+	font-family: Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+		Geneva, sans-serif;
+	font-size: 12pt;
+	margin: 0;
 }

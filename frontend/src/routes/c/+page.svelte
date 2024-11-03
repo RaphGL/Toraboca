@@ -123,7 +123,7 @@
 		.message-view {
 			display: flex;
 			flex-direction: column;
-			justify-content:end;
+			justify-content: end;
 		}
 	}
 

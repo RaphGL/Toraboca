@@ -1,6 +1,10 @@
 <script lang="ts">
+	import BellInactiveIcon from '$lib/icons/BellInactiveIcon.svelte';
 	import CallIcon from '$lib/icons/CallIcon.svelte';
 	import DotsIcon from '$lib/icons/DotsIcon.svelte';
+	import TrashIcon from '$lib/icons/TrashIcon.svelte';
+	import Dropdown from './Dropdown.svelte';
+	import DropdownItem from './DropdownItem.svelte';
 
 	type Props = {
 		chatName: string;
@@ -21,7 +25,18 @@
 	</div>
 	<div class="chat-wrapper">
 		<div><CallIcon /></div>
-		<div><DotsIcon /></div>
+		<Dropdown align="left">
+			{#snippet label()}
+				<div style="color: var(--fg-color1);">
+					<DotsIcon />
+				</div>
+			{/snippet}
+
+			<DropdownItem icon={BellInactiveIcon}>Mute</DropdownItem>
+			<DropdownItem>Media</DropdownItem>
+			<DropdownItem>Block</DropdownItem>
+			<DropdownItem icon={TrashIcon}>Delete</DropdownItem>
+		</Dropdown>
 	</div>
 </header>
 

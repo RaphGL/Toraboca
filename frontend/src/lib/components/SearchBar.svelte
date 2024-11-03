@@ -16,7 +16,7 @@
 		border: 1px solid var(--fg-color2);
 		border-radius: calc(var(--rounded-border) * 2);
 
-		&:has(> input[type="text"]:focus) {
+		&:has(> input[type='text']:focus) {
 			outline: 2px solid var(--fg-color1);
 		}
 	}
